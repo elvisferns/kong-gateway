@@ -1,0 +1,14 @@
+http://localhost:8001/services
+Accept: application/json
+
+#####
+http://localhost:8000/api/gists
+Accept: application/json
+
+######
+http://localhost:8001/status
+Accept: application/json
+
+###
+http://localhost:8000/hello
+Accept: application/json

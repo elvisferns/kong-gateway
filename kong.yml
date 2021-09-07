@@ -1,0 +1,24 @@
+_format_version: "2.1"
+
+services:
+  - name: gist-service
+    url: https://api.github.com
+    routes:
+      - name: gists-route
+        paths:
+          - /api/gists
+  - name: hello-service
+    host: host.docker.internal
+    port: 8080
+    protocol: http
+    path: /hello
+    routes:
+      - name: hello-route
+        paths:
+          - /hello
+    # uncomment if you want to enable the plugin
+    # plugins:
+    #   - name: rate-limit
+    #     config:
+    #       limittime: 10
+    #       limitrequest: 5
