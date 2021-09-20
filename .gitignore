@@ -3,3 +3,5 @@
 rate-limit/rate-limit
 
 web-server/node_modules
+
+es-alerts/node_modules
