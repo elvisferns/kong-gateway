@@ -1,0 +1,9 @@
+FROM docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+
+# install job scheduler plugin
+RUN bin/elasticsearch-plugin install https://d3g5vo6xdbdb9a.cloudfront.net/downloads/elasticsearch-plugins/opendistro-job-scheduler/opendistro-job-scheduler-1.13.0.0.zip
+
+# install alerting plugin
+RUN bin/elasticsearch-plugin install --batch https://d3g5vo6xdbdb9a.cloudfront.net/downloads/elasticsearch-plugins/opendistro-alerting/opendistro-alerting-1.13.1.0.zip
+
+ENV discovery.type=single-node
