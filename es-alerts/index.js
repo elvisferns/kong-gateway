@@ -1,30 +1,17 @@
-const axios = require("axios");
-const _ = require("lodash");
-const postmanMonitor = require("./monitors/postman-test");
-const { createDestination } = require('./destinations');
-const { URL } = require('./constants');
+const yargs = require("yargs");
+const { hideBin } = require('yargs/helpers')
+// const { createDestination } = require('./destinations');
+// const { createMonitor }= require('./monitors');
 
-const REQUIRED_KEYS = ["name", "enabled"];
+// eslint-disable-next-line no-undef
+const data = yargs(hideBin(process.argv))
+.commandDir('cmds')
+.demandCommand()
+.help()
+.parse();
 
-const createMonitor = async (monitor = {}) => {
-  try {
-    if (!_.isEqual(_.intersection(Object.keys(monitor), REQUIRED_KEYS), REQUIRED_KEYS)) {
-      throw new Error("Missing required fields");
-    }
-    
-    const url = URL + "/monitors";
-    const res = await axios.post(url, monitor, {
-      headers: {
-        "kbn-xsrf": "anything",
-      },
-    });
-    console.log("🚀 ~ file: index.js ~ line 17 ~ createMonitor ~ res", res);
-  } catch (error) {
-    console.error(error);
-  }
-};
+console.log("🚀 ~ file: index.js ~ line 27 ~ data", data)
 
 // createMonitor(postmanMonitor);
 
-createDestination('slack-postman-alert');
-
+// createDestination('slack-postman-alert');
