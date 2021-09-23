@@ -33,3 +33,15 @@ Basic web server written in Restify to test upstream server in kong
 * ``npm install`` to install npm packages
 
 * ``npm start`` in another terminal to start the web-server
+
+## Local [ELK stack](./alerting) with open distro alerting
+
+docker setup for ELK stack with alerting plugin
+
+``docker-compose up`` to start all the processes
+
+## [Alerting App](./es-alerts)
+
+``node index.js`` to run the index file
+
+Uncomment the code for action you wish to create
