@@ -13,8 +13,10 @@ const createDestination = async (name = "") => {
     }
 
     // check if dir exists
+    // eslint-disable-next-line no-undef
     readdirSync(path.join(__dirname, name));
 
+    // eslint-disable-next-line no-undef
     const destPayload = require(path.join(__dirname, name));
     console.log("🚀 ~ file: index.js ~ line 17 ~ createDestination ~ destPayload", destPayload);
 

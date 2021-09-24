@@ -10,7 +10,6 @@ module.exports =  [
     },
     actions: [
       {
-        id: "1d6h-HsBQRH4tYaWOZd8",
         name: "postman-slack-alert",
         destination_id: "w958-HsBQRH4tYaWuZfY",
         message_template: {
