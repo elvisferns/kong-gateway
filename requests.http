@@ -16,3 +16,11 @@ Accept: application/json
 ###
 # http://localhost:8080/hello/elvis
 # Accept: application/json
+
+###
+http://localhost:8000/status
+Accept: application/json
+
+###
+http://localhost:8000
+Accept: application/json

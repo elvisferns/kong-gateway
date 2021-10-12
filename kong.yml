@@ -16,6 +16,15 @@ services:
       - name: hello-route
         paths:
           - /hello
+  - name: status-check
+    host: localhost
+    # port: 8000
+    # protocol: http
+    path: /status
+    routes:
+      - name: status-route
+        paths:
+          - /status
     # uncomment if you want to enable the plugin
     # plugins:
     #   - name: rate-limit

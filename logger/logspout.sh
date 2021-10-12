@@ -1,7 +1,7 @@
 # docker commnd to run logspout
 
 docker run -d --name="logspout" \
-        --network="elk-network" \
+        --network="elk-network1" \
         -e EXCLUDE_LABEL=logspout.exclude \
         -e 'RAW_FORMAT={ "container" : "{{ .Container.Name }}", "timestamp": "{{ .Time.Format "2006-01-02T15:04:05Z07:00" }}", "source" : "{{ .Source }}", "data": {{ .Data }} }' \
         --label="logspout.exclude=true" \

@@ -1,11 +1,13 @@
 version: "3.7"
 services:
   kong:
-    # image: kong:2.4
-    image: kaplan-kong:2.4
+    # build: 
+    #   context: .
+    image: api-gateway:v0.2.0
+      
     # user: root
-    # volumes:
-    #   - ./kong.yml:/usr/local/kong/declarative/kong.yml
+    volumes:
+      - ./kong.yml:/usr/local/kong/declarative/kong.yml
     #   - ./kong.conf:/etc/kong/kong.conf
     #   - ./rate-limit/rate-limit:/usr/local/bin/rate-limit
     environment:
@@ -15,14 +17,16 @@ services:
       # - KONG_PLUGINS=rate-limit
       # - KONG_PLUGINSERVER_NAMES=rate-limit
       # - KONG_PLUGINSERVER_RATE_LIMIT_QUERY_CMD=/usr/local/bin/rate-limit -dump
-      - KONG_PROXY_ACCESS_LOG=/dev/stdout compression
-      - KONG_ADMIN_ACCESS_LOG=/dev/stdout compression
-      - KONG_PROXY_ERROR_LOG=/dev/stderr
-      - KONG_ADMIN_ERROR_LOG=/dev/stderr
+      # - KONG_PROXY_ACCESS_LOG=/dev/stdout compression
+      # - KONG_ADMIN_ACCESS_LOG=/dev/stdout compression
+      # - KONG_PROXY_ERROR_LOG=/dev/stderr
+      # - KONG_ADMIN_ERROR_LOG=/dev/stderr
       # - KONG_NGINX_HTTP_LOG_FORMAT=compression escape=json '{"time_local":$time_local, "remote_addr":"$remote_addr","remote_user":"$remote_user","request":"$request","status":$status,"body_bytes_sent":$body_bytes_sent,"request_time":$request_time,"http_referrer":"$http_referer", "http_user_agent":"$http_user_agent","http_x_forwarded_for":"$http_x_forwarded_for","host":"$host"}'
       - KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl
+      # - KONG_STATUS_LISTEN=0.0.0.0:8100
     ports:
       - "8000:8000"
       - "8443:8443"
       - "127.0.0.1:8001:8001"
       - "127.0.0.1:8444:8444"
+      # - "127.0.0.1:8100:8100"
